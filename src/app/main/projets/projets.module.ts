@@ -24,11 +24,7 @@ const routes: Routes = [
     },
 
 
-    {
-        path: 'logistique',
-        loadChildren: () => import('./logistique/logistique.module').then(m => m.LogistiqueModule),
-        canActivate: [AuthGuard]
-    },
+   
     {
         path: 'srbo',
         loadChildren: () => import('./bo/sr-bo.module').then(m => m.SrBoModule),
