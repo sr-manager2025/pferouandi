@@ -1,0 +1,24 @@
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+import {CoreCommonModule} from '@core/common.module';
+
+import {DatePickerI18nComponent} from './date-picker-i18n.component';
+import {NgxMaskModule} from 'ngx-mask';
+
+@NgModule({
+    declarations: [DatePickerI18nComponent],
+    imports: [
+        CommonModule,
+        CoreCommonModule,
+        NgbModule,
+        FormsModule,
+        NgxMaskModule,
+    ],
+    exports: [DatePickerI18nComponent]
+})
+export class DatePickerI18nModule {
+}

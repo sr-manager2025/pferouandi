@@ -1,0 +1,28 @@
+
+.sticky-bottom-right {
+  position: fixed !important;
+  bottom: 10%;
+  right: 2%;
+  z-index: 9999;
+}
+
+.sticky-bottom-left {
+  position: fixed !important;
+  bottom: 10%;
+  left: 2%;
+  z-index: 9999;
+}
+
+.sticky-top-left {
+  position: fixed !important;
+  top: 7%;
+  left: 2%;
+  z-index: 9999;
+}
+
+.sticky-top-right {
+  position: fixed !important;
+  top:60px;
+  right: 200px;
+  z-index: 9999;
+}

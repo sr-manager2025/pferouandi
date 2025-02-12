@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" width="200" height="200" style="shape-rendering: auto; display: block; background: transparent !important;" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <circle stroke-linecap="round" fill="none" stroke-dasharray="50.26548245743669 50.26548245743669" stroke="#911924" stroke-width="3" r="32" cy="50" cx="50">
+      <animateTransform values="0 50 50;360 50 50" keyTimes="0;1" repeatCount="indefinite" dur="1s" type="rotate" attributeName="transform"></animateTransform>
+    </circle>
+    <circle stroke-linecap="round" fill="none" stroke-dashoffset="36.12831551628262" stroke-dasharray="36.12831551628262 36.12831551628262" stroke="#809EAB" stroke-width="3" r="23" cy="50" cx="50">
+      <animateTransform values="0 50 50;-360 50 50" keyTimes="0;1" repeatCount="indefinite" dur="1s" type="rotate" attributeName="transform"></animateTransform>
+    </circle>
+    <g transform="translate(36, 35) scale(0.025)"> <!-- Adjust translation and scale as needed -->
+      <path d="M630.5 186.5V1.5L938.5 217L950 680L806 619L972 984.5L856.5 960L746.5 757V939.5L631 915.5V353L873.5 472.5V326L630.5 186.5Z" fill="#911924" stroke="#911924"/>
+      <path d="M745.5 939.5V754.5L856.5 961L745.5 939.5Z" fill="#809EAB" stroke="#809EAB"/>
+      <path d="M847 707.5L807.5 620L949 680.5L847 707.5Z" fill="#809EAB" stroke="#809EAB"/>
+      <path d="M971.5 984.5L630.5 915L1 1025L430 1048L971.5 984.5Z" fill="#923441" stroke="#923441"/>
+      <path d="M264.5 822.5L2 776L496 596V756L264.5 822.5Z" fill="#809EAB" stroke="#809EAB"/>
+      <path d="M104 605.5L103.5 461.5L276 523.5L104 605.5Z" fill="#923441" stroke="#923441"/>
+      <path d="M104 461L277 523L630.5 353L716 394L874.5 326.5L630.5 187.5L104 461Z" fill="#809EAB" stroke="#809EAB"/>
+      <path d="M874.5 327.5L716 394.5L874.5 472V327.5Z" fill="#923441" stroke="#923441"/>
+    </g>
+  </g>
+</svg>

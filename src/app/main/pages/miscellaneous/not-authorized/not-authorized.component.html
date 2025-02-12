@@ -1,0 +1,42 @@
+<!-- Not authorized-->
+<div class="misc-wrapper">
+    <a class="brand-logo" href="javascript:void(0);">
+        <img src="{{ coreConfig.app.appLogoFullColors }}" alt="brand-logo" height="100"/>
+        <!--<h1 class="brand-text text-primary ml-1">
+            {{ coreConfig.app.appName }}
+        </h1>-->
+
+    </a>
+    <div class="misc-inner p-2 p-sm-3">
+        <div class="w-100 text-center">
+            <h1 class="mb-1 text-danger text-bold">
+                Votre session est expirée! 🔐
+<!--                Vous n'êtes pas autorisé! 🔐-->
+            </h1>
+            <h4 class="mb-2">
+                Sr Manager utilise un système de restriction d'accès a certaines ressource.
+            </h4>
+
+            <div class="divider divider-danger">
+                <h2 class="divider-text mb-2">
+                    Veuillez vous reconnecter à votre compte
+                </h2>
+            </div>
+
+
+            <a class="btn btn-primary mb-1 btn-sm-block"
+               (click)="logout()" rippleEffect>
+                Retour à la page de connexion
+            </a><img
+                class="img-fluid"
+                [src]="
+          coreConfig.layout.skin === 'dark'
+            ? 'assets/images/logo/appIconeColorBlack.png'
+            : 'assets/images/logo/appIconeFullColors.png'
+        "
+                alt="Not authorized page"
+        />
+        </div>
+    </div>
+</div>
+<!-- / Not authorized-->

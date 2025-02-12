@@ -1,0 +1,7 @@
+
+<!-- basic custom context menu component -->
+<ul class="context-menu-list" style="position: relative" [@menu]="_state" (@menu.done)="_onAnimationDone($event)">
+    <li class="context-menu-item" (click)="handleClick('edit')">Modifier</li>
+    <li class="context-menu-item" (click)="handleClick('delete')">Supprimer</li>
+</ul>
+<!--/ basic custom context menu component -->

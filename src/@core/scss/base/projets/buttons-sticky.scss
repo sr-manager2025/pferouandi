@@ -1,0 +1,43 @@
+
+/*.level-8 {
+  @extend .btn-sticky-bottom-right-level;
+  bottom: 380px;
+}*/
+
+.ng-dropdown-panel{
+  z-index: 9999 !important;
+}
+
+.btn-sticky-bottom-right-level {
+  position: fixed !important;
+  right: 10px;
+  z-index: 9999;
+  width: 206px;
+  height: 35px;
+}
+
+
+.level-1 {
+  @extend .btn-sticky-bottom-right-level;
+  bottom: 100px;
+}
+
+.btn-sticky-bottom-right {
+  position: fixed !important;
+  bottom: 10%;
+  z-index: 9999;
+}
+
+.btn-sticky-top-left {
+  position: fixed !important;
+  top: 10%;
+  left: 1%;
+  z-index: 9999;
+}
+
+.btn-sticky-top-right {
+  position: fixed !important;
+  top: 40%;
+  right: 2%;
+  z-index: 9999;
+}

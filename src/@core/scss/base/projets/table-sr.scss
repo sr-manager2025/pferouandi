@@ -1,0 +1,192 @@
+
+.table {
+    color: #000000;
+}
+
+
+
+.table-document > thead > tr > th,
+.table-document > tbody > tr > th,
+.table-document > tfoot > tr > th,
+.table-document > thead > tr > td,
+.table-document > tbody > tr > td,
+.table-document > tfoot > tr > td {
+    padding: 0px 5px !important;
+    vertical-align: middle;
+    font-family: Poppins, Helvetica, "sans-serif" !important;
+    //font-family: Cambria,Calibri,Roboto, Arial, sans-serif !important;
+    font-size: 13px !important;
+}
+
+.table-registre-caisse > thead > tr > th,
+.table-registre-caisse > tbody > tr > th,
+.table-registre-caisse > tfoot > tr > th,
+.table-registre-caisse > thead > tr > td,
+.table-registre-caisse > tbody > tr > td,
+.table-registre-caisse > tfoot > tr > td {
+    padding: 5px 5px !important;
+    vertical-align: middle;
+    font-family: Poppins, Helvetica, "sans-serif" !important;
+    //font-family: Cambria,Calibri,Roboto, Arial, sans-serif !important;
+    font-size: 12px !important;
+}
+
+.table-borderau thead tr:first-child td {
+    border-top: solid 1px !important;
+    border-left: solid 1px;
+    border-bottom: solid 1px;
+}
+
+/*.table-borderau thead th {
+  //background: #333;
+  //color: #FFF;
+  border-top: solid 1px;
+  border-left: solid 1px;
+  border-bottom: solid 1px;
+}*/
+.table-borderau tr td {
+//background: #333;
+//color: #FFF;
+    border-left: solid 1px;
+//border-right: solid 1px;
+}
+
+.table-borderau .last-tr td {
+//background: #333;
+//color: #FFF;
+    border-bottom: solid 1px;
+}
+
+.table-borderau .after-last-tr td {
+//background: #333;
+//color: #FFF;
+    border-top: solid 1px;
+}
+
+.table-borderau .no-border {
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+}
+
+.table-borderau .last-tr .no-border {
+    border-bottom: none;
+}
+
+.table-borderau .last-colone {
+    border-right: solid 1px;
+}
+
+
+.no-border-rbl{
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+
+.no-border-tb{
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.no-border-lr{
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.no-border-lb{
+    border-left: none !important;
+    border-bottom: none !important;
+}
+.no-border-lbt{
+    border-top: none !important;
+    border-left: none !important;
+    border-bottom: none !important;
+}
+.no-border-r{
+    border-right: none !important;
+}
+.border-r-white{
+    border-right: 1px solid #FFF !important;
+}
+/*
+.border-r-grey-200{
+    border-right: 1px solid $grey-200 !important;
+}
+*/
+/*
+.border-l-grey-200{
+    border-right: 1px solid $grey-200 !important;
+}
+*/
+
+.border-l-white{
+    border-left: 1px solid #FFF !important;
+}
+
+.border-r-secondary{
+    border-right: 1px solid #d6d8db !important;
+}
+.border-l-secondary{
+    border-left: 1px solid #d6d8db !important;
+}
+
+
+.no-border-l{
+    border-left: none !important;
+}
+
+.no-border-t{
+    border-top: none !important;
+}
+
+.no-border-b{
+    border-bottom: none !important;
+}
+
+tr td .border-1{
+    border-right: #1e1e1e 1px solid;
+    border-bottom: #1e1e1e 1px solid;
+    border-left: #1e1e1e 1px solid;
+    border-top: #1e1e1e 1px solid;
+}
+
+.border-b {
+    border-bottom: #000 1px solid !important;
+}
+
+.display-arrow{
+    display: table-row !important;
+}
+.hide-arrow > th,
+.hide-arrow > td{
+    height: 0px !important;
+    //display: none !important;
+}
+
+.text-transparent{
+    color: transparent !important;
+
+}
+
+.table-xm {
+    th,
+    td {
+        padding: $table-cell-padding-xm;
+    }
+}
+
+.pv-amounts{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}
+
+.pv-totals{
+    font-size: 1.3rem !important;
+    font-weight: bold !important;
+}
+
+.invoices-liste-amounts{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+}

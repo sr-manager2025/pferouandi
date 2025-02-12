@@ -1,0 +1,204 @@
+<div *ngIf="horizontalMenu" class="navbar-header d-xl-block d-none">
+    <!-- Navbar brand -->
+    <ul class="nav navbar-nav flex-row">
+        <li class="nav-item">
+            <a class="navbar-brand" [routerLink]="['/']">
+                <img src="assets/images/logo/sr%20manager.svg" alt="brand-logo" width="200"/>
+            </a>
+        </li>
+    </ul>
+    
+    <!--/ Navbar brand -->
+</div>
+
+<div class="navbar-container d-flex content">
+    <div class="bookmark-wrapper d-flex align-items-center">
+        <!-- Menu Toggler | Menu icon will be hidden in case of layout without menu -->
+        <ul class="nav navbar-nav d-xl-none" *ngIf="!coreConfig.layout.menu.hidden">
+            <li class="nav-item">
+                <a class="nav-link menu-toggle" (click)="toggleSidebar('menu')">
+                    <span [data-feather]="'menu'" [class]="'ficon'"></span>
+                </a>
+            </li>
+        </ul>
+        <!--/ Menu Toggler -->
+
+        <!-- Bookmark -->
+        <app-navbar-bookmark></app-navbar-bookmark>
+        <!--/ Bookmark -->
+    </div>
+    <ul class="nav navbar-nav align-items-center ml-auto">
+
+        <!-- Language selection -->
+        <!-- <li ngbDropdown class="nav-item dropdown dropdown-language">
+             <a class="nav-link dropdown-toggle" id="dropdown-flag" ngbDropdownToggle>
+                 <i class="flag-icon flag-icon-{{ languageOptions[_translateService.currentLang].flag }}"></i
+                 ><span class="selected-language">{{ languageOptions[_translateService.currentLang].title }}</span></a
+             >
+             <div ngbDropdownMenu aria-labelledby="dropdown-flag">
+                 <a *ngFor="let lang of _translateService.getLangs()" ngbDropdownItem (click)="setLanguage(lang)">
+                     <i class="flag-icon flag-icon-{{ languageOptions[lang].flag }}"></i> {{ languageOptions[lang].title }}
+                 </a>
+             </div>
+         </li>-->
+        <!--/ Language selection -->
+
+
+
+        <!-- Toggle skin -->
+        <li class="nav-item d-none d-lg-block">
+            <a class="nav-link nav-link-style btn" (click)="toggleDarkSkin()">
+               <!--
+                 <span [ngClass]="currentSkin === 'dark' ? 'icon-sun' : 'icon-moon'"
+                      class="ficon font-medium-5 feather">
+                 </span>
+                -->
+            </a>
+        </li>
+        <!--/ Toggle skin -->
+
+
+
+        <!-- Search -->
+        <!--        <app-navbar-search></app-navbar-search>-->
+        <!--/ Search -->
+
+        <!-- Cart -->
+        <!--        <app-navbar-cart></app-navbar-cart>-->
+        <!--/ Cart -->
+
+        <!-- Notification -->
+        <app-navbar-notification></app-navbar-notification>
+        <!--/ Notification -->
+
+        <!-- AppUser Dropdown -->
+        <li ngbDropdown class="nav-item dropdown-user">
+            <a class="nav-link dropdown-toggle dropdown-user-link"
+               id="dropdown-user"
+               ngbDropdownToggle
+               id="navbarUserDropdown"
+               aria-haspopup="true"
+               aria-expanded="false">
+                <ng-container *ngIf="this.currentUser">
+                    <div class="user-nav d-sm-flex d-none">
+                    <span class="user-name font-weight-bolder">
+                {{ this.currentUser.firstName }} {{ this.currentUser.lastName }}
+                    </span>
+                        <span class="user-status">{{ this.currentUser.role }}</span>
+                    </div>
+                    <span class="avatar">
+
+                        <img class="round" [src]="avatarImage"
+                                              alt="Portrait"
+                                              height="40"
+                                              width="40"/>
+                        <span class="avatar-status-online">
+
+                        </span>
+                    </span>
+                </ng-container>
+            </a>
+            <div ngbDropdownMenu aria-labelledby="navbarUserDropdown" class="dropdown-menu dropdown-menu-right">
+                <a *ngIf="false" ngbDropdownItem [routerLink]="['/pages/profile']"><span [data-feather]="'user'" [class]="'mr-50'"></span>
+                    Profil
+                </a>
+                <a *ngIf="false" ngbDropdownItem [routerLink]="['/apps/email']"><span [data-feather]="'mail'" [class]="'mr-50'"></span>
+                    Messages
+                </a>
+                <a *ngIf="false" ngbDropdownItem [routerLink]="['/apps/todo']"><span [data-feather]="'check-square'" [class]="'mr-50'"></span>
+                    Tâches
+                </a>
+                <a *ngIf="false" ngbDropdownItem [routerLink]="['/apps/chat']"><span [data-feather]="'message-square'" [class]="'mr-50'"></span>
+                    Chats
+                </a>
+                <a *ngIf="authService.isAdmin(currentUser)" ngbDropdownItem
+                   [routerLink]="['/projets/users/list']">
+                    <span [data-feather]="'users'" [class]="'mr-50'"></span>
+                    Les utilisateurs
+                </a>
+                <div class="dropdown-divider"></div>
+                <a ngbDropdownItem (click)="onAccountSettings()">
+                    <span [data-feather]="'settings'" [class]="'mr-50'"></span>
+                    Paramètres
+                </a>
+
+                <a *ngIf="authService.isComptableChantier(currentUser)" ngbDropdownItem
+                   (click)="onViewDemandesAvances()">
+                    <span [data-feather]="'settings'" [class]="'mr-50'"></span>
+                    Mes demandes
+                </a>
+
+                <a *ngIf="authService.isAdmin(currentUser)" ngbDropdownItem
+                   (click)="onInitPwd(modalInitPwd)">
+                    <span [data-feather]="'settings'" [class]="'mr-50'"></span>
+                    Intialise Pwd
+                </a>
+                <!--<a ngbDropdownItem [routerLink]="['/pages/pricing']">
+                    <span [data-feather]="'credit-card'" [class]="'mr-50'"></span>
+                    Pricing
+                </a>-->
+               <!-- <a ngbDropdownItem [routerLink]="['/pages/faq']"><span [data-feather]="'help-circle'" [class]="'mr-50'"></span>
+                    FAQ
+                </a>-->
+                <a ngbDropdownItem (click)="logout()"><span [data-feather]="'power'" [class]="'mr-50'"></span>
+                    Se déconnecter
+                </a>
+            </div>
+        </li>
+        <!--/ AppUser Dropdown -->
+    </ul>
+</div>
+
+
+<!-- Modal Init Pwd -->
+<ng-template #modalInitPwd let-modal>
+
+    <div class="modal-header">
+        <h4 class="modal-title text-bold text-primary"
+            id="idmodalInitPwd">
+            Initialiser un mot de passe:
+        </h4>
+
+    </div>
+
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+        <h5 class="text-bold text-success">
+            Username :
+        </h5>
+        <form #initPwdForm="ngForm" (ngSubmit)="(initPwdForm.form.valid)">
+            <div class="form-group">
+
+                <input id="roleName"
+                       [(ngModel)]="username"
+                       #txtusername="ngModel"
+                       required
+                       name="username"
+                       class="form-control"
+                       [class.error]="!txtusername.valid && initPwdForm.submitted">
+
+                <span *ngIf="initPwdForm.submitted && initPwdForm.errors"
+                      class="invalid-form">
+                        <small class="form-text text-danger"
+                               *ngIf="(initPwdForm.errors && initPwdForm.errors.required )">
+                                Username obligatoire!
+                        </small>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-outline-secondary"
+                (click)="modal.dismiss('Cross click')" rippleEffect>
+            Annuler
+        </button>
+
+        <button type="submit" [disabled]="!username"
+                class="btn {{username ? 'btn-success' : 'btn-secondary'}}"
+                (click)="onSaveInitPwd(modal)" rippleEffect>
+            Initialiser
+        </button>
+
+    </div>
+</ng-template>
+<!--  / Modal -->

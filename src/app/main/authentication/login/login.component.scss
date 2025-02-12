@@ -1,0 +1,30 @@
+@import '../@core/scss/base/bootstrap-extended/include';
+// Bootstrap includes
+@import '../@core/scss/base/pages/page-auth';
+
+.auth-help-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.img-login{
+  width:100%;
+  height:100%;
+  opacity: 0.9;
+}
+
+.h-70 {
+  height: 70% !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.w-80 {
+  width: 80% !important;
+}
+.w-50 {
+  width: 50% !important;
+}

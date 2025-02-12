@@ -1,0 +1,46 @@
+<ng-container *ngIf="!item.hidden">
+    <!-- collapsible title -->
+    <a class="d-flex align-items-center"
+       [ngClass]="item.classes"
+       [ngClass]="item.type == 'section' ? 'dropdown-toggle nav-link' : 'dropdown-item dropdown-toggle'"
+       *ngIf="!item.url">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- itemContent template -->
+    <ng-template #itemContent>
+        <span [data-feather]="item.icon" *ngIf="item.icon"></span>
+        <span [translate]="item.translate">{{ item.title }}</span>
+    </ng-template>
+
+    <!-- sub-menu item/collapsible -->
+    <ul class="dropdown-menu" [ngClass]="{ show: isShow }">
+        <ng-container *ngFor="let child of item.children">
+            <!-- item -->
+            <li core-menu-horizontal-item
+                *ngIf="authService.canViewItem(item)"
+                [item]="child"
+                [ngClass]="{ disabled: !authService.canViewItem(item) }"
+                [routerLinkActive]="!child['openInNewTab'] ? 'active' : ''"
+                [routerLinkActiveOptions]="{ exact: child['exactMatch'] || false }">
+                <span [routerLink]="child['openInNewTab'] ? [] : [child['url']]" class="d-none"></span>
+            </li>
+
+            <!-- collapsible -->
+            <li
+                    core-menu-horizontal-collapsible
+                    *ngIf="child['type'] == 'collapsible' && currentUser.roles &&  authService.canViewItem(item)"
+                    [item]="child"
+                    class="dropdown dropdown-submenu">
+
+            </li>
+        </ng-container>
+    </ul>
+</ng-container>
+
+<!--
+
+*ngIf="child.type == 'collapsible' &&
+(child.role ? child.role.includes(currentUser.role) : false || child.role == undefined)"
+
+-->

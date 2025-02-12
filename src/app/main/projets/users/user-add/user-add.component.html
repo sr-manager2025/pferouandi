@@ -1,0 +1,284 @@
+<div class="content-wrapper p-0">
+    <div class="content-body">
+        <!-- content-header component -->
+        <app-content-header [contentHeader]="contentHeader"></app-content-header>
+
+        <!-- account setting page -->
+        <section id="page-account-settings">
+            <div class="row nav-vertical nav-vertical-over d-flex">
+                <div class="col-md-3 mb-2 mb-md-0">
+
+                    <ul ngbNav #navVertical="ngbNav" class="nav nav-pills flex-column nav-left">
+
+                        <li class="nav-item" ngbNavItem>
+                            <a ngbNavLink class="nav-link d-flex py-75"
+                               id="account-pill-general"
+                               data-toggle="pill"
+                               href="#account-vertical-general"
+                               aria-expanded="true">
+                                <i data-feather="user" class="font-medium-3 mr-1"></i>
+                                <span class="font-weight-bold">Général</span>
+                            </a>
+                            <ng-template ngbNavContent>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <!-- header media -->
+                                        <div class="media">
+                                            <a href="javascript:void(0);" class="mr-25">
+                                                <img [src]="avatarImage" class="rounded mr-50" alt="profile image"
+                                                     height="76" width="80"/>
+                                            </a>
+                                            <!-- upload and reset button -->
+
+                                            <div class="media-body mt-75 ml-1">
+                                                <button [disabled]="disableUploadImage"
+                                                        (click)="file.click()"
+                                                        for="account-upload"
+                                                        [ngClass]="{'btn btn-sm mb-75 mr-75' :true,
+                                                        'btn-primary':!disableUploadImage,
+                                                        'btn-secondary':disableUploadImage}"
+
+                                                        class="btn btn-sm btn-primary mb-75 mr-75"
+                                                        rippleEffect>
+                                                    Upload
+                                                </button>
+                                                <input type="file" #file
+                                                       id="account-upload"
+                                                       hidden
+                                                       accept="image/*"
+                                                       (change)="uploadImage($event)"/>
+                                                <button disabled
+                                                        class="btn btn-sm btn-outline-secondary mb-75" rippleEffect>
+                                                    Reset
+                                                </button>
+                                                <p>Images: JPG, GIF or PNG. Taille max 800kB</p>
+                                            </div>
+
+                                            <!--/ upload and reset button -->
+                                        </div>
+                                        <!--/ header media -->
+
+                                        <!-- form -->
+
+                                        <form class="form-horizontal" (ngSubmit)="(TDInfoGeneraleForm.form.valid)" #TDInfoGeneraleForm="ngForm">
+
+                                            <div class="row">
+
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="TDFirstName">Prénom</label>
+                                                        <input class="form-control input-md"
+                                                               [class.error]="!TDFirstNameRef.valid && TDFirstNameRef.touched"
+                                                               [(ngModel)]="userCreated.firstName"
+                                                               #TDFirstNameRef="ngModel"
+                                                               required
+                                                               id="TDFirstName"
+                                                               name="TDFirstName"
+                                                               type="text"
+                                                               placeholder="Prénom"/>
+
+                                                        <span *ngIf="!TDFirstNameRef.valid && TDFirstNameRef.touched"
+                                                              class="invalid-form">
+                                                             <small class="form-text text-danger"
+                                                                    *ngIf="TDFirstNameRef.errors.required">
+                                                                 Le Prénom est obligatoire!
+                                                             </small>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="TDLastName">Nom</label>
+                                                        <input class="form-control input-md"
+                                                               [class.error]="!TDLastNameRef.valid && TDLastNameRef.touched"
+                                                               [(ngModel)]="userCreated.lastName"
+                                                               #TDLastNameRef="ngModel"
+                                                               required
+                                                               id="TDLastName"
+                                                               name="TDLastName"
+                                                               type="text"
+                                                               placeholder="Prénom"/>
+
+                                                        <span *ngIf="!TDLastNameRef.valid && TDLastNameRef.touched"
+                                                              class="invalid-form">
+                                                             <small class="form-text text-danger"
+                                                                    *ngIf="TDLastNameRef.errors.required">
+                                                                 Le Nom est obligatoire!
+                                                             </small>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="TDUserName">Nom d'utilisateur</label>
+                                                        <input  class="form-control input-md"
+                                                               [class.error]="!TDUserNameRef.valid && TDUserNameRef.touched"
+                                                               [(ngModel)]="userCreated.username"
+                                                               #TDUserNameRef="ngModel"
+                                                               required
+                                                               id="TDUserName"
+                                                               name="TDUserName"
+                                                               type="text"
+                                                               placeholder="Nom D'utilisateur"/>
+
+                                                        <span *ngIf="!TDUserNameRef.valid && TDUserNameRef.touched"
+                                                              class="invalid-form">
+                                                             <small class="form-text text-danger"
+                                                                    *ngIf="TDUserNameRef.errors.required">
+                                                                 Le Nom d'utilisateur est obligatoire!
+                                                             </small>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label" for="TDMultiRuleEmail">Email</label>
+                                                        <input
+                                                                class="form-control input-md"
+                                                                [class.error]="!TDMultiRuleEmailRef.valid && TDMultiRuleEmailRef.touched"
+                                                                [(ngModel)]="userCreated.email"
+                                                                #TDMultiRuleEmailRef="ngModel"
+                                                                required
+                                                                email
+                                                                id="TDMultiRuleEmail"
+                                                                name="TDMultiRuleEmail"
+                                                                type="text"
+                                                                placeholder="Votre Email"/>
+                                                        <span *ngIf="!TDMultiRuleEmailRef.valid && TDMultiRuleEmailRef.touched" class="invalid-form">
+                                                            <small class="form-text text-danger">
+                                                               L'Email doit etre valide!
+                                                            </small>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                                <div *ngIf="!authService.isAdmin(userCreated)" class="col-sm-6 col-md-6" >
+                                                    <fieldset class="form-group">
+                                                        <label>LES ROLES</label>
+                                                        <ng-select
+                                                            #TDSubContractorRef="ngModel"
+                                                            [items]="roles"
+                                                            [multiple]="true"
+                                                            [closeOnSelect]="true"
+                                                            [searchable]="true"
+                                                            bindLabel="roleName"
+                                                            placeholder="Séléctionner au moins un Roles"
+                                                            [(ngModel)]="userCreated.appRoles"
+                                                            [ngModelOptions]="{standalone: true}" #select
+                                                            [class.error]="userCreated.appRoles && userCreated.appRoles.length==0 && TDInfoGeneraleForm.submitted">
+
+                                                            <ng-template ng-header-tmp>
+                                                                <button class="add-new-customer btn btn-flat-success cursor-pointer rounded-0 text-left p-50 w-100"
+                                                                        (click)="onAddRole(modalNewRole); select.blur(); select.close()">
+                                                                    <i data-feather="plus"></i>
+                                                                    <span class="align-middle ml-25">Ajouter un Role</span>
+                                                                </button>
+                                                            </ng-template>
+
+                                                        </ng-select>
+
+                                                        <span *ngIf="TDInfoGeneraleForm.submitted && userCreated.appRoles && userCreated.appRoles.length==0"
+                                                              class="invalid-form">
+                                                            <small class="form-text text-danger"
+                                                                   *ngIf="userCreated.appRoles && userCreated.appRoles.length==0">
+                                                                Vous devez choisir au moins un role!
+                                                            </small>
+                                                        </span>
+
+
+                                                    </fieldset>
+
+                                                </div>
+
+                                            </div>
+
+                                            <button type="submit"
+                                                    [disabled]="!TDInfoGeneraleForm.form.valid"
+                                                    [ngClass]="{'btn mr-1 mt-1' :true,'btn-primary':TDInfoGeneraleForm.form.valid,'btn-secondary':!TDInfoGeneraleForm.form.valid}"
+                                                    (click)="createUser()"
+                                                    rippleEffect>
+                                                Enregistrer
+                                            </button>
+
+                                            <button type="reset" class="btn btn-outline-secondary  mr-1 mt-1" rippleEffect
+                                                    [routerLink]="['/projets/users/list']">
+                                                Fermer
+                                            </button>
+
+
+                                        </form>
+
+                                        <!--/ form -->
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </li>
+
+
+                    </ul>
+
+                </div>
+                <div [ngbNavOutlet]="navVertical" class="col-12 col-md-9"></div>
+            </div>
+        </section>
+        <!--/ account setting page -->
+    </div>
+</div>
+
+<!-- Modal new City -->
+<ng-template #modalNewRole let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title text-bold text-primary"
+            id="idmodalNewCity">
+            Ajouter un role utilisateur
+        </h4>
+
+    </div>
+    <div class="modal-body" tabindex="0" ngbAutofocus>
+        <h5 class="text-bold text-success">
+            Intitule du Role :
+        </h5>
+        <form #newRoleForm="ngForm" (ngSubmit)="(newRoleForm.form.valid)">
+            <div class="form-group">
+
+                <input id="roleName"
+                       [(ngModel)]="roleName"
+                       #txtRoleName="ngModel"
+                       required
+                       name="roleName"
+                       class="form-control"
+                       [class.error]="!txtRoleName.valid && newRoleForm.submitted">
+
+                <span *ngIf="newRoleForm.submitted && newRoleForm.errors"
+                      class="invalid-form">
+                        <small class="form-text text-danger"
+                               *ngIf="(newRoleForm.errors && newRoleForm.errors.required )">
+                                Le nom du role est obligatoire!
+                        </small>
+                </span>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-outline-secondary"
+                (click)="modal.dismiss('Cross click')" rippleEffect>
+            Annuler
+        </button>
+
+        <button type="submit" [disabled]="!roleName"
+                class="btn {{roleName ? 'btn-success' : 'btn-secondary'}}"
+                (click)="onSaveNewRole(modal)" rippleEffect>
+            Enregistrer
+        </button>
+
+    </div>
+</ng-template>
+<!--  / Modal -->
+
+
+
